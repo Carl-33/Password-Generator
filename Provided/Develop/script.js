@@ -7,34 +7,23 @@ var numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var symbols = ["~","!","@","#","$","%","&","-","+","=", "_"];
 
 var passwordArray = [];
-var passwordArray = [];
 
 // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-//   passwordText.value = password;
-// };
+  passwordText.value = password;
+};
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", function () {
-  
-  var Pword = "";
-  var password = generatePassword();
-  // var passwordText = document.querySelector("#password");
-
-  // passwordText.value = password;
-// });
+generateBtn.addEventListener("click", writePassword);
 
 
+function writePassword (){
 
-
-
-  function generatePassword (){
-
-    var Length = parseInt(prompt ("How long would you like your password to be? It can be between 8 and 128 characters long."));
-    while (Length > 128 || Length < 8) {
+  var Length = parseInt(prompt ("How long would you like your password to be? It can be between 8 and 128 characters long."));
+  while (Length > 128 || Length < 8) {
       Length = parseInt(prompt ("Whoops, your password has to be between 8 and 128 characters.  How long would you like it to be?"));
 
     }
@@ -58,30 +47,15 @@ generateBtn.addEventListener("click", function () {
       passwordArray = passwordArray.concat(numeric)
     }
 
-
-
 console.log(passwordArray);
-
-for (let i = 0; i < passwordArray.length; i++) {
-  console.log(passwordArray[i]);
-  
-}
    
-
+  var fatMan = ""
   for (let i = 0; i < Length; i++) {
-    var variables = Math.floor(Math.random()*passwordArray.length);
-    Pword += passwordArray[variables];
-    console.log(Pword);
-
-  }
-console.log(Pword);
+    var farts = Math.floor(Math.random() *passwordArray.length) +1;
+   fatMan += passwordArray[farts];
+    console.log(fatMan);
+    return fatMan
 
 }
 
-console.log(Pword);
-
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = Pword;
-});
-
+};
